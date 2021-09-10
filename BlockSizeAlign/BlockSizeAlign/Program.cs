@@ -9,7 +9,7 @@ namespace BlockSizeAlign
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            int[] testInt = { 0, 1, 2, 1024 * 4, 1024 * 4 + 1, 1024 * 1024 * 4 };
+            int[] testInt = { 0, 1, 2, 1024 * 4, 1024 * 4 + 1, 1024 * 1024 * 4, 1024 * 1024 * 16 - 1 };
             for(int i = 0; i < testInt.Length; i++)
             {
                 int size = (testInt[i] - 1 + BlockSize) / BlockSize * BlockSize;
@@ -26,3 +26,4 @@ namespace BlockSizeAlign
 //4096 size: 4096
 //4097 size: 8192
 //4194304 size: 4194304
+//16777215 size: 16777216
