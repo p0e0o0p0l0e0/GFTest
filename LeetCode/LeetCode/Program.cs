@@ -5,9 +5,10 @@ internal class Program
     private static void Main(string[] args)
     {
         Console.WriteLine("Hello World!");
-        _704.Solution sol = new _704.Solution();
-        int[] nums = new int[] {2, 5 };
-        int ret = sol.Search1(nums, 5);
+        _35.Solution sol = new _35.Solution();
+        int[] nums = new int[] { 1, 3, 5, 6 };
+        int target = 7;
+        int ret = sol.SearchInsert(nums, target);
         Console.WriteLine(ret);
     }
 }
