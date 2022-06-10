@@ -5,10 +5,13 @@ internal class Program
     private static void Main(string[] args)
     {
         Console.WriteLine("Hello World!");
-        _35.Solution sol = new _35.Solution();
-        int[] nums = new int[] { 1, 3, 5, 6 };
-        int target = 7;
-        int ret = sol.SearchInsert(nums, target);
-        Console.WriteLine(ret);
+        _977.Solution sol = new _977.Solution();
+        int[] nums = new int[] {-3, -3, -2, 1};
+        int[] ret = sol.SortedSquares(nums);
+        for(int i = 0; i < ret.Length; i++)
+        {
+            Console.Write(ret[i]);
+            Console.Write("    ");
+        }
     }
 }
