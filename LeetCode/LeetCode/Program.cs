@@ -7,7 +7,7 @@ internal class Program
         Console.WriteLine("Hello World!");
         _189.Solution sol = new _189.Solution();
         int[] nums = new int[] {-1};
-        int[] ret = sol.Rotate(nums, 2);
+        int[] ret = sol.Rotate1(nums, 2);
         for(int i = 0; i < ret.Length; i++)
         {
             Console.Write(ret[i]);
