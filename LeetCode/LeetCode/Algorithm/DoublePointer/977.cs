@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace _977
+﻿namespace _977
 {//双指针：
     public class Solution
     {
