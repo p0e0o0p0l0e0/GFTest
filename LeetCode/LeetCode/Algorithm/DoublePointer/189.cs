@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace _189
+namespace _189 // 189. 轮转数组
 {//双指针：
     public class Solution
     {

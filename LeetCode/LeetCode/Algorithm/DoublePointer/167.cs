@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace _167
+namespace _167 // 167. 两数之和 II - 输入有序数组
 {//双指针：
     public class Solution
     {

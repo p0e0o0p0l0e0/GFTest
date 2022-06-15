@@ -1,8 +1,9 @@
-﻿namespace _704
-{//二分查找：找到升序数组中匹配的值的序号，没有则返回-1
+﻿namespace _704 // 704. 二分查找
+{//二分查找：
     public class Solution
     {
         // 108ms 50.1MB 二分查找
+        // 找到升序数组中匹配的值的序号，没有则返回-1
         public int Search(int[] nums, int target)
         {
             int left = 0, right = nums.Length - 1;

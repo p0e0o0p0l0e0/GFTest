@@ -1,4 +1,4 @@
-﻿namespace _876
+﻿namespace _876 // 876. 链表的中间结点
 {//双指针：
     public class ListNode
     {

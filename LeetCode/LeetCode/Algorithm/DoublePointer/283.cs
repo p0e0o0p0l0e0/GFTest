@@ -1,4 +1,4 @@
-﻿namespace _283
+﻿namespace _283 // 283. 移动零
 {//双指针：
     public class Solution
     {

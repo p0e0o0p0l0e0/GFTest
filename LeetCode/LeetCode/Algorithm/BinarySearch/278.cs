@@ -1,5 +1,5 @@
-﻿namespace _278
-{// 二分查找：查找第一个错误的版本
+﻿namespace _278 // 278. 第一个错误的版本
+{// 二分查找：
     public class Solution
     {
         public int badVersion = 4;
