@@ -7,7 +7,7 @@
         {
             int[] squaredArray = new int[nums.Length];
             int left = 0, right = nums.Length - 1;
-            for(int i = nums.Length - 1; i >= 0 ; i--)
+            for (int i = nums.Length - 1; i >= 0; i--)
             {
                 if (nums[left] < 0 && -nums[left] > nums[right])
                 {
@@ -22,6 +22,5 @@
             }
             return squaredArray;
         }
-    
     }
 }

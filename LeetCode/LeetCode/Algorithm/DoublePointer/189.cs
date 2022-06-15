@@ -11,13 +11,13 @@ namespace _189
             Dictionary<int, int> flagDic = new Dictionary<int, int>();
             int length = nums.Length;
             int tempValue = 0, newTempValue = 0, newPos = 0;
-            for(int i = 0; i < nums.Length; i++)
+            for (int i = 0; i < nums.Length; i++)
             {
                 if (!flagDic.ContainsKey(i))
                 {
                     tempValue = nums[i];
                     newPos = GetNewPos(i, k, length);
-                    while(!flagDic.ContainsKey(newPos))
+                    while (!flagDic.ContainsKey(newPos))
                     {
                         newTempValue = nums[newPos];
                         nums[newPos] = tempValue;
@@ -29,11 +29,11 @@ namespace _189
             }
             return nums;
         }
+
         private int GetNewPos(int i, int k, int length)
         {
             return (i + k) % length;
         }
-
 
         // 140ms 57.6MB
         // 1234567向前移动3个位置，先将左右颠倒7654321，再将前k个颠倒，再将后面的颠倒，则得到结果

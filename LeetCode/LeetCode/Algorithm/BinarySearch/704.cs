@@ -30,9 +30,9 @@
         // 108ms 50MB 遍历列表
         public int Search1(int[] nums, int target)
         {
-            for(int i = 0; i <= nums.Length - 1; i++)
+            for (int i = 0; i <= nums.Length - 1; i++)
             {
-                if(nums[i] == target)
+                if (nums[i] == target)
                 {
                     return i;
                 }

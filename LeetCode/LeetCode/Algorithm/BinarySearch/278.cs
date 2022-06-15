@@ -1,16 +1,16 @@
-﻿
-namespace _278
+﻿namespace _278
 {// 二分查找：查找第一个错误的版本
     public class Solution
     {
         public int badVersion = 4;
+
         public int FirstBadVersion(int n)
         {
             int left = 1, right = n, mid = left;
-            while(right >= left)
+            while (right >= left)
             {
                 mid = left + (right - left) / 2;
-                if(IsBadVersion(mid))
+                if (IsBadVersion(mid))
                 {
                     right = mid - 1;
                 }

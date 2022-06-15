@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace _344
+﻿namespace _344
 {//双指针：
     public class Solution
     {
@@ -8,7 +6,7 @@ namespace _344
         public void ReverseString(char[] s)
         {
             char temp;
-            for(int i = 0, j =  s.Length - 1; i < j;i++,j--)
+            for (int i = 0, j = s.Length - 1; i < j; i++, j--)
             {
                 temp = s[i];
                 s[i] = s[j];

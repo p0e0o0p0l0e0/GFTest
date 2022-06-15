@@ -1,17 +1,17 @@
-﻿using System;
-
-namespace _876
+﻿namespace _876
 {//双指针：
-    public class ListNode {
+    public class ListNode
+    {
         public int val;
         public ListNode next;
-        public ListNode(int val=0, ListNode next=null)
+
+        public ListNode(int val = 0, ListNode next = null)
         {
-          this.val = val;
-          this.next = next;
+            this.val = val;
+            this.next = next;
         }
-  }
- 
+    }
+
     public class Solution
     {
         // 76ms 37.1MB
@@ -20,11 +20,11 @@ namespace _876
         {
             int count = 0;
             ListNode slow = head, fast = head;
-            while(fast.next != null)
+            while (fast.next != null)
             {
                 count++;
                 fast = fast.next;
-                if((count + 1) % 2 == 0)
+                if ((count + 1) % 2 == 0)
                 {
                     slow = slow.next;
                 }

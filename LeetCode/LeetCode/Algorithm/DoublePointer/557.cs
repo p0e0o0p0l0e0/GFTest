@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace _557
+﻿namespace _557
 {//双指针：
     public class Solution
     {
@@ -10,19 +8,19 @@ namespace _557
         {
             char[] c = s.ToCharArray();
             int from = -1, to = -1;
-            for(int i = 0; i < c.Length; i++)
+            for (int i = 0; i < c.Length; i++)
             {
                 if (from == -1 && c[i] != ' ')
                 {
                     from = i;
                 }
-                else if(c[i] == ' ')
+                else if (c[i] == ' ')
                 {
                     to = i - 1;
                     ReverseString(c, from, to);
                     from = -1;
                 }
-                else if(i == c.Length - 1)
+                else if (i == c.Length - 1)
                 {
                     to = i;
                     ReverseString(c, from, to);
@@ -31,6 +29,7 @@ namespace _557
             }
             return new string(c);
         }
+
         private void ReverseString(char[] s, int from, int to)
         {
             char temp;

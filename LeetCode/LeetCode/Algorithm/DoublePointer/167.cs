@@ -10,10 +10,10 @@ namespace _167
         {
             Dictionary<int, int> dic = new Dictionary<int, int>();
             int temp = 0;
-            for(int i = 0; i < numbers.Length;i++)
+            for (int i = 0; i < numbers.Length; i++)
             {
                 temp = target - numbers[i];
-                if(!dic.ContainsKey(temp))
+                if (!dic.ContainsKey(temp))
                 {
                     dic[numbers[i]] = i;
                 }
@@ -29,9 +29,9 @@ namespace _167
         // 因为序列递增，依次遍历数组的每一个值，去后续序列里寻找匹配值。时间复杂度O(nlogn)
         public int[] TwoSum1(int[] numbers, int target)
         {
-            for(int i = 0; i < numbers.Length; i++)
+            for (int i = 0; i < numbers.Length; i++)
             {
-                for(int j = i+1; j < numbers.Length; j++)
+                for (int j = i + 1; j < numbers.Length; j++)
                 {
                     int temp = numbers[i] + numbers[j];
                     if (temp > target)

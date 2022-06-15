@@ -1,5 +1,4 @@
-﻿
-namespace _35
+﻿namespace _35
 {// 二分查找：找到升序数组中匹配的值的序号，没有则返回插入的位置序号
     public class Solution
     {

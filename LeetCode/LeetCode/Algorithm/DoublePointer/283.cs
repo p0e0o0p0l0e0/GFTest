@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace _283
+﻿namespace _283
 {//双指针：
     public class Solution
     {
@@ -10,9 +8,9 @@ namespace _283
         {
             for (int i = 0, j = 0; j < nums.Length; j++)
             {
-                if(nums[j] != 0)
+                if (nums[j] != 0)
                 {
-                    if(i != j)
+                    if (i != j)
                     {
                         nums[i] = nums[j];
                         nums[j] = 0;
