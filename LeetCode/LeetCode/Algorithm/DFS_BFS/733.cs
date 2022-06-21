@@ -1,13 +1,42 @@
-﻿namespace _733// 733. 图像渲染
+﻿using System.Collections.Generic;
+
+namespace _733// 733. 图像渲染
 {// 深度优先DFS 广度优先BFS：
 
 
-    // DFS 132ms 45MB
     public class Solution
     {
         public int[][] FloodFill(int[][] image, int sr, int sc, int newColor)
         {
-            DFS(image, sr, sc, image[sr][sc], newColor);
+            // DFS 132ms 45MB
+            //DFS(image, sr, sc, image[sr][sc], newColor);
+
+            // BFS 132ms 344.8MB
+            int[] dx = { 1, 0, 0, -1 };
+            int[] dy = { 0, 1, -1, 0 };
+
+            int oldColor = image[sr][sc];
+            if (oldColor == newColor)
+                return image;
+            int n = image.Length, m = image[0].Length;
+            Queue<int[]> queue = new Queue<int[]>();
+            queue.Enqueue(new int[] { sr, sc });
+            image[sr][sc] = newColor;
+            while(queue.Count > 0)
+            {
+                int[] cell = queue.Dequeue();
+                int x = cell[0], y = cell[1];
+                for(int i = 0; i < 4; i++)
+                {
+                    int mx = x + dx[i], my = y + dy[i];
+                    if (mx >= 0 && mx < n && my >= 0 && my < m && image[mx][my] == oldColor)
+                    {
+                        queue.Enqueue(new int[] { mx, my });
+                        image[mx][my] = newColor;
+                    }
+                }
+            }
+
             return image;
         }
 
@@ -28,5 +57,6 @@
             DFS(image, x, y + 1, oldColor, newColor);
             DFS(image, x, y - 1, oldColor, newColor);
         }
+        
     }
 }
