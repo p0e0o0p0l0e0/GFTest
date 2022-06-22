@@ -42,6 +42,5 @@ namespace _3 // 3. 无重复字符的最长子串
             }
             return max;
         }
-
     }
 }
