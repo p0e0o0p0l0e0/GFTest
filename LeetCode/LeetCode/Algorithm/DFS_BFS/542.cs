@@ -7,6 +7,55 @@ namespace _542// 542. 01 矩阵
     {
         int[] dx = { 1, 0, 0, -1 };
         int[] dy = { 0, 1, -1, 0 };
+
+        // 第三种算法：多源广度优先
+        // 先找到所有的0，加入queue，再从它们触发找到所有的非0，继续寻找。。。
+        // 200ms 63.6MB
+        public int[][] UpdateMatrix2(int[][] mat)
+        {
+            int row = mat.Length, column = mat[0].Length;
+            int[][] path = new int[row][];
+            for(int i = 0; i < row; i++)
+            {
+                path[i] = new int[column];
+                for(int j = 0; j < column; j++)
+                {
+                    path[i][j] = int.MaxValue;
+                }
+            }
+            Queue<int[]> queue = new Queue<int[]>();
+            for(int i = 0; i < row; i++)
+            {
+                for(int j = 0; j < column; j++)
+                {
+                    if(mat[i][j] == 0)
+                    {
+                        queue.Enqueue(new int[] { i, j });
+                        path[i][j] = 0;
+                    }
+                }
+            }
+            while(queue.Count > 0)
+            {
+                int[] cell = queue.Dequeue();
+                int newPath = path[cell[0]][cell[1]] + 1;
+                for (int k = 0; k < 4; k++)
+                {
+                    int x = cell[0] + dx[k], y = cell[1] + dy[k];
+                    if(x >= 0 && y >= 0 && x < row && y < column && mat[x][y] != 0 && path[x][y] > newPath)
+                    {
+                        path[x][y] = newPath;
+                        queue.Enqueue(new int[] { x, y });
+                    }
+                }
+            }
+
+            return path;
+        }
+
+
+
+
         Dictionary<int, Dictionary<int, int>> dic = new Dictionary<int, Dictionary<int, int>>();
 
         // 第二种方法：找到第一个0，上下左右一直赋值，更新path数值。遇到新的0则进入递归，如果周围值小于等于新递归的值则停止。类似DFS吧
