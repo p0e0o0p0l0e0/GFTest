@@ -8,6 +8,62 @@ namespace _542// 542. 01 矩阵
         int[] dx = { 1, 0, 0, -1 };
         int[] dy = { 0, 1, -1, 0 };
 
+        // 动态规划DP：从左上遍历左上，再从右下遍历右下，得到最终值
+        // 188ms 63.7MB
+        public int[][] UpdateMatrix3(int[][] mat)
+        {
+            int m = mat.Length, n = mat[0].Length;
+            // 初始化动态规划的数组，所有的距离值都设置为一个很大的数
+            int[][] path = new int[m][];
+            for (int i = 0; i < m; ++i)
+            {
+                path[i] = new int[n];
+                Array.Fill(path[i], int.MaxValue/ 2); // 注意这里能设置为MaxValue，因为在+1后可能导致溢出
+            }
+            // 如果 (i, j) 的元素为 0，那么距离为 0
+            for (int i = 0; i < m; ++i)
+            {
+                for (int j = 0; j < n; ++j)
+                {
+                    if (mat[i][j] == 0)
+                    {
+                        path[i][j] = 0;
+                    }
+                }
+            }
+            // 只有 水平向左移动 和 竖直向上移动，注意动态规划的计算顺序
+            for (int i = 0; i < m; ++i)
+            {
+                for (int j = 0; j < n; ++j)
+                {
+                    if (i - 1 >= 0)
+                    {
+                        path[i][j] = Math.Min(path[i][j], path[i - 1][j] + 1);
+                    }
+                    if (j - 1 >= 0)
+                    {
+                        path[i][j] = Math.Min(path[i][j], path[i][j - 1] + 1);
+                    }
+                }
+            }
+            // 只有 水平向右移动 和 竖直向下移动，注意动态规划的计算顺序
+            for (int i = m - 1; i >= 0; --i)
+            {
+                for (int j = n - 1; j >= 0; --j)
+                {
+                    if (i + 1 < m)
+                    {
+                        path[i][j] = Math.Min(path[i][j], path[i + 1][j] + 1);
+                    }
+                    if (j + 1 < n)
+                    {
+                        path[i][j] = Math.Min(path[i][j], path[i][j + 1] + 1);
+                    }
+                }
+            }
+            return path;
+        }
+
         // 第三种算法：多源广度优先
         // 先找到所有的0，加入queue，再从它们触发找到所有的非0，继续寻找。。。
         // 200ms 63.6MB
@@ -20,7 +76,7 @@ namespace _542// 542. 01 矩阵
                 path[i] = new int[column];
                 for(int j = 0; j < column; j++)
                 {
-                    path[i][j] = int.MaxValue;
+                    path[i][j] = int.MaxValue / 2; // 注意这里能设置为MaxValue，因为在+1后可能导致溢出
                 }
             }
             Queue<int[]> queue = new Queue<int[]>();
@@ -67,10 +123,7 @@ namespace _542// 542. 01 矩阵
             for (int i = 0; i < row; i++)
             {
                 path[i] = new int[column];
-                for (int j = 0; j < column; j++)
-                {
-                    path[i][j] = -1;
-                }
+                Array.Fill(path[i], int.MaxValue / 2);
             }
 
             for (int i = 0; i < row; i++)
@@ -115,7 +168,7 @@ namespace _542// 542. 01 矩阵
                         path[x][y] = 0;
                         DFS(mat, path, x, y);
                     }
-                    else if (path[x][y] == -1 || path[x][y] > (path[i][j] + 1))
+                    else if (path[x][y] > (path[i][j] + 1))
                     {
                         path[x][y] = path[i][j] + 1;
                         DFS(mat, path, x, y);
@@ -136,10 +189,7 @@ namespace _542// 542. 01 矩阵
             for (int i = 0; i < row; i++)
             {
                 path[i] = new int[column];
-                for (int j = 0; j < column; j++)
-                {
-                    path[i][j] = -1;
-                }
+                Array.Fill(path[i], int.MaxValue / 2);
             }
 
             for (int i = 0; i < row; i++)
@@ -163,23 +213,19 @@ namespace _542// 542. 01 矩阵
         int[] min = new int[4];
         private int GetMinimusPath(int[][] path, int i, int j)
         {
+            Array.Fill(min, int.MaxValue);
             for (int k = 0; k < 4; k++)
             {
                 int x = i + dx[k], y = j + dy[k];
                 if (x >= 0 && y >= 0 && x < path.Length && y < path[0].Length)
                     min[k] = path[x][y] + 1;
-                else
-                    min[k] = -1;
             }
-            int result = -1;
+            int result = int.MaxValue;
             for (int k = 0; k < 4; k++)
             {
                 if (min[k] > 0)
                 {
-                    if (result == -1)
-                        result = min[k];
-                    else
-                        result = Math.Min(result, min[k]);
+                    result = Math.Min(result, min[k]);
                 }
             }
             return result;
@@ -194,7 +240,7 @@ namespace _542// 542. 01 矩阵
                 int x = i + dx[k], y = j + dy[k];
                 if (x >= 0 && y >= 0 && x < path.Length && y < path[0].Length)
                 {
-                    if(path[x][y] == -1 || path[x][y] > (path[i][j] + 1))
+                    if(path[x][y] > (path[i][j] + 1))
                     {
                         path[x][y] = path[i][j] + 1;
                         UpdateAround(path, x, y);

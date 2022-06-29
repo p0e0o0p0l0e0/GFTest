@@ -7,7 +7,7 @@ internal class Program
     {
         Console.WriteLine("Hello World!");
         Solution sol = new();
-        sol.UpdateMatrix2(new int[][] { 
+        int[][] path = sol.UpdateMatrix3(new int[][] { 
             new int[] { 0, 0, 0}, 
             new int[] { 0, 1, 0}, 
             new int[] { 1, 1, 1}, 
