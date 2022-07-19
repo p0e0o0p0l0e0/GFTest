@@ -1,4 +1,4 @@
-﻿using _542;
+﻿using _994;
 using System;
 
 internal class Program
@@ -7,10 +7,10 @@ internal class Program
     {
         Console.WriteLine("Hello World!");
         Solution sol = new();
-        int[][] path = sol.UpdateMatrix3(new int[][] { 
-            new int[] { 0, 0, 0}, 
-            new int[] { 0, 1, 0}, 
-            new int[] { 1, 1, 1}, 
+        int min = sol.OrangesRotting_DFS(new int[][] { 
+            new int[] { 2, 1, 1}, 
+            new int[] { 1, 1, 0}, 
+            new int[] { 0, 1, 1}, 
         });
     }
 }
