@@ -1,4 +1,4 @@
-﻿using _994;
+﻿using _21;
 using System;
 
 internal class Program
@@ -7,10 +7,18 @@ internal class Program
     {
         Console.WriteLine("Hello World!");
         Solution sol = new();
-        int min = sol.OrangesRotting(new int[][] { 
-            new int[] { 2, 1, 1}, 
-            new int[] { 1, 1, 0}, 
-            new int[] { 0, 1, 1}, 
-        });
+        ListNode list1 = new ListNode(1, new ListNode(2, new ListNode(4)));
+        ListNode list2 = new ListNode(1, new ListNode(3, new ListNode(4)));
+        ListNode list = sol.MergeTwoLists(list1, list2);
+        PrintListNode(list);
+        
+    }
+    private static void PrintListNode(ListNode list)
+    {
+        if(list != null)
+        {
+            Console.WriteLine(list.val);
+            PrintListNode(list.next);
+        }
     }
 }
