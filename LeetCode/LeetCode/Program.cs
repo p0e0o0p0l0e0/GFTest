@@ -1,4 +1,4 @@
-﻿using _21;
+﻿using _206;
 using System;
 
 internal class Program
@@ -8,8 +8,7 @@ internal class Program
         Console.WriteLine("Hello World!");
         Solution sol = new();
         ListNode list1 = new ListNode(1, new ListNode(2, new ListNode(4)));
-        ListNode list2 = new ListNode(1, new ListNode(3, new ListNode(4)));
-        ListNode list = sol.MergeTwoLists(list1, list2);
+        ListNode list = sol.ReverseList(list1);
         PrintListNode(list);
         
     }
