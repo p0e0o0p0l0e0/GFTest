@@ -16,8 +16,9 @@
 
     public class Solution
     {
+
         // 76ms 38.2MB 迭代 时间n，空间1
-        public ListNode ReverseList(ListNode head)
+        public ListNode ReverseList2(ListNode head)
         {
             ListNode pre = null;
             ListNode curr = head;
@@ -29,6 +30,17 @@
                 curr = list;
             }
             return pre;
+        }
+
+        // 96ms 38.2MB 官方递归
+        public ListNode ReverseList(ListNode head)
+        {
+            if (head == null || head.next == null)
+                return head;
+            ListNode ret = ReverseList(head.next);
+            head.next.next = head;
+            head.next = null;
+            return ret;
         }
 
         private ListNode result = null;
