@@ -6,14 +6,14 @@
         IList<IList<int>> result = new List<IList<int>>();
         IList<int> path = new List<int>();
 
-        // 96ms 43.1MB DFS
+        // 96ms 43.1MB DFS 回溯算法
         public IList<IList<int>> Combine(int n, int k)
         {
-            DFS(1, n, k);
+            BackTrack(1, n, k);
             return result;
         }
 
-        private void DFS(int start, int n, int k)
+        private void BackTrack(int start, int n, int k)
         {
             if (k == 0)
             {
@@ -24,7 +24,7 @@
             for (int i = start; i <= n - k + 1; i++)
             {
                 path.Add(i);
-                DFS(i + 1, n, k - 1);
+                BackTrack(i + 1, n, k - 1);
                 path.RemoveAt(path.Count - 1);
             }
         }
