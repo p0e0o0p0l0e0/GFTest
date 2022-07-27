@@ -10,12 +10,10 @@ using System.Collections.Generic;
 public class Solution {
     IList<IList<int>> result = new List<IList<int>>();
     IList<int> path = new List<int>();
-    int[] b;
 
     // 124ms 42.3MB 回溯算法
     public IList<IList<int>> Permute(int[] nums) {
         int length = nums.Length;
-        b = new int[nums.Length];
         BackTracking(nums, length);
         return result;
     }
