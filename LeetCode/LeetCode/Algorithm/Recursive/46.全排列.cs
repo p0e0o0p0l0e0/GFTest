@@ -6,36 +6,41 @@
 
 using System.Collections.Generic;
 
-// @lc code=start
-public class Solution {
-    IList<IList<int>> result = new List<IList<int>>();
-    IList<int> path = new List<int>();
-
-    // 124ms 42.3MB 回溯算法
-    public IList<IList<int>> Permute(int[] nums) {
-        int length = nums.Length;
-        BackTracking(nums, length);
-        return result;
-    }
-
-    private void BackTracking(int[] nums, int n)
+namespace _46
+{
+    // @lc code=start
+    public class Solution
     {
-        if (path.Count == nums.Length)
+        private IList<IList<int>> result = new List<IList<int>>();
+        private IList<int> path = new List<int>();
+
+        // 124ms 42.3MB 回溯算法
+        public IList<IList<int>> Permute(int[] nums)
         {
-            result.Add(new List<int>(path));
-            return;
+            int length = nums.Length;
+            BackTracking(nums, length);
+            return result;
         }
 
-        for (int i = 0; i < n; i++)
+        private void BackTracking(int[] nums, int n)
         {
-            if(!path.Contains(nums[i]))
+            if (path.Count == nums.Length)
             {
-                path.Add(nums[i]);
-                BackTracking(nums, n);
-                path.RemoveAt(path.Count - 1);
+                result.Add(new List<int>(path));
+                return;
+            }
+
+            for (int i = 0; i < n; i++)
+            {
+                if (!path.Contains(nums[i]))
+                {
+                    path.Add(nums[i]);
+                    BackTracking(nums, n);
+                    path.RemoveAt(path.Count - 1);
+                }
             }
         }
     }
-}
-// @lc code=end
 
+    // @lc code=end
+}

@@ -1,4 +1,4 @@
-﻿using _77;
+﻿using _784;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +8,7 @@ internal class Program
     {
         Console.WriteLine("Hello World!");
         Solution sol = new();
-        IList<IList<int>> list = sol.Combine(4, 2);
+        IList<string> list = sol.LetterCasePermutation("a1b2");
         Console.WriteLine("End!");
     }
 }
