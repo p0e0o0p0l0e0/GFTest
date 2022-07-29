@@ -12,7 +12,7 @@ namespace _70
     public class Solution
     {
         // 24ms 26.5MB 斐波那契数列 通项公式 参考同目录图片 时间O(log(n)) 空间O(1)
-        public int ClimbStairs(int n)
+        public int ClimbStairs_FibonacciSequence(int n)
         {
             int[][] m = new int[2][] { new int[2] { 0, 1 }, new int[2] { 1, 1 } };
             int[][] res = pow(m, n);
