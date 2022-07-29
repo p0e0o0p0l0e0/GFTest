@@ -14,46 +14,43 @@ namespace _784
     public class Solution
     {
         private IList<string> result = new List<string>();
-        private StringBuilder sb = new StringBuilder();
+        private char[] path;
 
+        // 回溯算法 152ms 64.4MB
+        // c^32可以切换字母大小写
         public IList<string> LetterCasePermutation(string s)
         {
+            path = s.ToCharArray();
             BackTracking(s, 0);
             return result;
         }
 
         private void BackTracking(string s, int start)
         {
-            if (s.Length == sb.Length)
+            if (s.Length == start)
             {
-                result.Add(sb.ToString());
+                result.Add(new string(path));
                 return;
             }
 
-            for (int i = start; i < s.Length; i++)
+            char c = s[start];
+            if (!IsNumber(c))
             {
-                if (IsLetter(s[i]))
-                {
-                    sb.Append(s[i].ToString().ToLower());
-                    BackTracking(s, i + 1);
-                    sb.Remove(sb.Length - 1, 1);
+                path[start] = c;
+                BackTracking(s, start + 1);
 
-                    sb.Append(s[i].ToString().ToUpper());
-                    BackTracking(s, i + 1);
-                    sb.Remove(sb.Length - 1, 1);
-                }
-                else
-                {
-                    sb.Append(s[i]);
-                    BackTracking(s, i + 1);
-                    sb.Remove(sb.Length - 1, 1);
-                }
+                path[start] = (char)(c^32);
+                BackTracking(s, start + 1);
+            }
+            else
+            {
+                BackTracking(s, start + 1);
             }
         }
 
-        private bool IsLetter(char c)
+        private bool IsNumber(char c)
         {
-            return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+            return c >= 48 && c <= 57;
         }
     }
 
