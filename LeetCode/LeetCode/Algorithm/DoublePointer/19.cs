@@ -40,7 +40,7 @@
             {
                 slow.next = slow.next.next;
             }
-            else if(slow == null && n == count)
+            else if (slow == null && n == count)
             {// 如果slow是空说明n>=count，相等则说明刚好要删除第一个节点
                 head = head.next;
             }
@@ -49,7 +49,8 @@
 
         // 84ms, 37.8MB
         // 递归链表，可以倒叙计算cur，与n相等时返回head.next
-        int cur = 0;
+        private int cur = 0;
+
         public ListNode RemoveNthFromEnd1(ListNode head, int n)
         {
             if (head == null)

@@ -9,7 +9,6 @@ namespace _784
     using System.Collections.Generic;
 
     // @lc code=start
-    using System.Text;
 
     public class Solution
     {
@@ -39,7 +38,7 @@ namespace _784
                 path[start] = c;
                 BackTracking(s, start + 1);
 
-                path[start] = (char)(c^32);
+                path[start] = (char)(c ^ 32);
                 BackTracking(s, start + 1);
             }
             else

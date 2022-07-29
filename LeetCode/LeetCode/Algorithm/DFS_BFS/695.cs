@@ -15,11 +15,11 @@ namespace _695 // 695. 岛屿的最大面积
             int m = grid.Length, n = grid[0].Length;
 
             Queue<int[]> queue = new Queue<int[]>();
-            for(int i = 0; i < m; i++)
+            for (int i = 0; i < m; i++)
             {
-                for(int j = 0; j < n; j++)
+                for (int j = 0; j < n; j++)
                 {
-                    if(grid[i][j] == 1)
+                    if (grid[i][j] == 1)
                     {
                         queue.Enqueue(new int[] { i, j });
                         temparea++;
@@ -47,11 +47,9 @@ namespace _695 // 695. 岛屿的最大面积
             return maxarea;
         }
 
-
-
-
         // DFS: 80ms 42MB
-        int temparea = 0;
+        private int temparea = 0;
+
         public int MaxAreaOfIsland_DFS(int[][] grid)
         {
             int maxarea = 0;

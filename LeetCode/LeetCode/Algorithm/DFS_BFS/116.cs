@@ -1,6 +1,5 @@
 ﻿namespace _116 // 116. 填充每个节点的下一个右侧节点指针
 {// 二叉树
-
     using System;
     using System.Collections.Generic;
 
@@ -11,7 +10,8 @@
         public Node right;
         public Node next;
 
-        public Node() { }
+        public Node()
+        { }
 
         public Node(int _val)
         {
@@ -37,11 +37,11 @@
                 int i = 0, count = 0;
                 Queue<Node> queue = new Queue<Node>();
                 queue.Enqueue(root);
-                while(queue.Count > 0)
+                while (queue.Count > 0)
                 {
                     Node temp = queue.Dequeue();
                     count++;
-                    if(count == Math.Pow(2, i))
+                    if (count == Math.Pow(2, i))
                     {
                         temp.next = null;
                         count = 0;
@@ -51,7 +51,7 @@
                     {
                         temp.next = queue.Peek();
                     }
-                    if(temp.left != null)
+                    if (temp.left != null)
                     {
                         queue.Enqueue(temp.left);
                         queue.Enqueue(temp.right);
@@ -64,12 +64,12 @@
         // DFS 88ms 42.3MB
         public Node Connect1(Node root)
         {
-            if(root != null)
+            if (root != null)
             {
-                if(root.left != null)
+                if (root.left != null)
                 {
                     root.left.next = root.right;
-                    if(root.next != null)
+                    if (root.next != null)
                     {
                         root.right.next = root.next.left;
                     }

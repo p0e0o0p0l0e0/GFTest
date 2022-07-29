@@ -13,9 +13,9 @@
             this.right = right;
         }
     }
+
     public class Solution
     {
-
         public TreeNode MergeTrees(TreeNode root1, TreeNode root2)
         {
             if (root1 == null && root2 == null)

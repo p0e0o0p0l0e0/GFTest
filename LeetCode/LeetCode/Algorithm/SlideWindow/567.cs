@@ -17,7 +17,7 @@ namespace _567 // 567. 字符串的排列，s2是否包含s1的全排列，即�
             for (int i = 0; i < s1.Length; i++)
             {
                 int c = s1[i] - 'a';
-                if(dic.ContainsKey(c))
+                if (dic.ContainsKey(c))
                 {
                     dic[c] = dic[c] + 1;
                 }
@@ -30,7 +30,7 @@ namespace _567 // 567. 字符串的排列，s2是否包含s1的全排列，即�
             for (int i = 0; i < s2.Length; i++)
             {
                 int c = s2[i] - 'a';
-                if(dic.ContainsKey(c))
+                if (dic.ContainsKey(c))
                 {
                     dic1[c] = dic1[c] + 1;
                     list.Add(c);
@@ -51,7 +51,7 @@ namespace _567 // 567. 字符串的排列，s2是否包含s1的全排列，即�
                 else
                 {
                     list.Clear();
-                    foreach(int cx in dic1.Keys)
+                    foreach (int cx in dic1.Keys)
                     {
                         dic1[cx] = 0;
                     }
@@ -62,7 +62,7 @@ namespace _567 // 567. 字符串的排列，s2是否包含s1的全排列，即�
 
         private bool Check(Dictionary<int, int> dic, Dictionary<int, int> dic1)
         {
-            foreach(int c in dic.Keys)
+            foreach (int c in dic.Keys)
             {
                 if (dic1[c] != (dic[c]))
                     return false;

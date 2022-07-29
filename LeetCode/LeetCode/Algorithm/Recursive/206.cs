@@ -16,13 +16,12 @@
 
     public class Solution
     {
-
         // 76ms 38.2MB 迭代 时间n，空间1
         public ListNode ReverseList2(ListNode head)
         {
             ListNode pre = null;
             ListNode curr = head;
-            while(curr != null)
+            while (curr != null)
             {
                 ListNode list = curr.next;
                 curr.next = pre;
@@ -44,6 +43,7 @@
         }
 
         private ListNode result = null;
+
         //76ms 38.3MB 递归 时间n 空间n（栈空间）
         public ListNode ReverseList1(ListNode head)
         {

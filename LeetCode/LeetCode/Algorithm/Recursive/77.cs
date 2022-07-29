@@ -1,10 +1,11 @@
 ﻿namespace _77// 77. 组合
 {
     using System.Collections.Generic;
-    class Solution
+
+    internal class Solution
     {
-        IList<IList<int>> result = new List<IList<int>>();
-        IList<int> path = new List<int>();
+        private IList<IList<int>> result = new List<IList<int>>();
+        private IList<int> path = new List<int>();
 
         // 96ms 43.1MB DFS 回溯算法
         public IList<IList<int>> Combine(int n, int k)

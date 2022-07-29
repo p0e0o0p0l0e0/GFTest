@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-using System;
+﻿using System;
+using System.Collections.Generic;
 
 namespace _542// 542. 01 矩阵
 {// 深度优先DFS 广度优先BFS：
     public class Solution
     {
-        int[] dx = { 1, 0, 0, -1 };
-        int[] dy = { 0, 1, -1, 0 };
+        private int[] dx = { 1, 0, 0, -1 };
+        private int[] dy = { 0, 1, -1, 0 };
 
         // 动态规划DP：从左上遍历左上，再从右下遍历右下，得到最终值
         // 188ms 63.7MB
@@ -18,7 +18,7 @@ namespace _542// 542. 01 矩阵
             for (int i = 0; i < m; ++i)
             {
                 path[i] = new int[n];
-                Array.Fill(path[i], int.MaxValue/ 2); // 注意这里能设置为MaxValue，因为在+1后可能导致溢出
+                Array.Fill(path[i], int.MaxValue / 2); // 注意这里能设置为MaxValue，因为在+1后可能导致溢出
             }
             // 如果 (i, j) 的元素为 0，那么距离为 0
             for (int i = 0; i < m; ++i)
@@ -71,34 +71,34 @@ namespace _542// 542. 01 矩阵
         {
             int row = mat.Length, column = mat[0].Length;
             int[][] path = new int[row][];
-            for(int i = 0; i < row; i++)
+            for (int i = 0; i < row; i++)
             {
                 path[i] = new int[column];
-                for(int j = 0; j < column; j++)
+                for (int j = 0; j < column; j++)
                 {
                     path[i][j] = int.MaxValue / 2; // 注意这里能设置为MaxValue，因为在+1后可能导致溢出
                 }
             }
             Queue<int[]> queue = new Queue<int[]>();
-            for(int i = 0; i < row; i++)
+            for (int i = 0; i < row; i++)
             {
-                for(int j = 0; j < column; j++)
+                for (int j = 0; j < column; j++)
                 {
-                    if(mat[i][j] == 0)
+                    if (mat[i][j] == 0)
                     {
                         queue.Enqueue(new int[] { i, j });
                         path[i][j] = 0;
                     }
                 }
             }
-            while(queue.Count > 0)
+            while (queue.Count > 0)
             {
                 int[] cell = queue.Dequeue();
                 int newPath = path[cell[0]][cell[1]] + 1;
                 for (int k = 0; k < 4; k++)
                 {
                     int x = cell[0] + dx[k], y = cell[1] + dy[k];
-                    if(x >= 0 && y >= 0 && x < row && y < column && mat[x][y] != 0 && path[x][y] > newPath)
+                    if (x >= 0 && y >= 0 && x < row && y < column && mat[x][y] != 0 && path[x][y] > newPath)
                     {
                         path[x][y] = newPath;
                         queue.Enqueue(new int[] { x, y });
@@ -109,10 +109,7 @@ namespace _542// 542. 01 矩阵
             return path;
         }
 
-
-
-
-        Dictionary<int, Dictionary<int, int>> dic = new Dictionary<int, Dictionary<int, int>>();
+        private Dictionary<int, Dictionary<int, int>> dic = new Dictionary<int, Dictionary<int, int>>();
 
         // 第二种方法：找到第一个0，上下左右一直赋值，更新path数值。遇到新的0则进入递归，如果周围值小于等于新递归的值则停止。类似DFS吧
         // 2056ms 66.6MB时间太长
@@ -163,7 +160,7 @@ namespace _542// 542. 01 矩阵
                 int x = i + dx[k], y = j + dy[k];
                 if (x >= 0 && y >= 0 && x < path.Length && y < path[0].Length)
                 {
-                    if(mat[x][y] == 0 && !DicContainsCell(x, y))
+                    if (mat[x][y] == 0 && !DicContainsCell(x, y))
                     {
                         path[x][y] = 0;
                         DFS(mat, path, x, y);
@@ -176,8 +173,6 @@ namespace _542// 542. 01 矩阵
                 }
             }
         }
-
-
 
         // 第一种方法：每次给一个格子赋值，如果是0则赋值为0，如果不是0则寻找上下左右最小值，+1得当前值。
         // 赋值后更新上下左右的值，出现比当前值+1还大的，则继续更新上下左右的值，直到停止。
@@ -210,7 +205,8 @@ namespace _542// 542. 01 矩阵
             return path;
         }
 
-        int[] min = new int[4];
+        private int[] min = new int[4];
+
         private int GetMinimusPath(int[][] path, int i, int j)
         {
             Array.Fill(min, int.MaxValue);
@@ -240,7 +236,7 @@ namespace _542// 542. 01 矩阵
                 int x = i + dx[k], y = j + dy[k];
                 if (x >= 0 && y >= 0 && x < path.Length && y < path[0].Length)
                 {
-                    if(path[x][y] > (path[i][j] + 1))
+                    if (path[x][y] > (path[i][j] + 1))
                     {
                         path[x][y] = path[i][j] + 1;
                         UpdateAround(path, x, y);
