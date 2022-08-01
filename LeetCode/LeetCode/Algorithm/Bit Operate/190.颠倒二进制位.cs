@@ -13,7 +13,7 @@ namespace _190
         public uint reverseBits(uint n)
         {
             uint ret = 0;
-            for(int i = 0; i < 32 && n!= 0; ++i)
+            for (int i = 0; i < 32 && n != 0; ++i)
             {
                 ret |= (n & 1) << (31 - i);
                 n >>= 1;
@@ -21,10 +21,11 @@ namespace _190
             return ret;
         }
 
-        uint M1 = 0x55555555; // 01010101010101010101010101010101
-        uint M2 = 0x33333333; // 00110011001100110011001100110011
-        uint M4 = 0x0f0f0f0f; // 00001111000011110000111100001111
-        uint M8 = 0x00ff00ff; // 00000000111111110000000011111111
+        private uint M1 = 0x55555555; // 01010101010101010101010101010101
+        private uint M2 = 0x33333333; // 00110011001100110011001100110011
+        private uint M4 = 0x0f0f0f0f; // 00001111000011110000111100001111
+        private uint M8 = 0x00ff00ff; // 00000000111111110000000011111111
+
         // 分治法 12ms 23.4MB O(1) O(1)
         public uint reverseBits_1(uint n)
         {
