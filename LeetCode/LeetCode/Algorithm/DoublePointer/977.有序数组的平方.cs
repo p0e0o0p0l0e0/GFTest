@@ -1,4 +1,4 @@
-﻿namespace _977
+﻿namespace _977 // 有序数组的平方
 {//双指针：
     public class Solution
     {

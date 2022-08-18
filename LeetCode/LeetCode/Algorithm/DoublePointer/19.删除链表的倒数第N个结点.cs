@@ -1,4 +1,4 @@
-﻿namespace _19 //19. 删除链表的倒数第 N 个结点
+﻿namespace _19 //19. 删除链表的倒数第N个结点
 {//双指针：
     public class ListNode
     {
