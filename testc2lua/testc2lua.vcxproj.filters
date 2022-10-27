@@ -15,6 +15,9 @@
     <Filter Include="LuaScripts">
       <UniqueIdentifier>{4bfa5d09-eab9-43c2-8d27-c073064b20c5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="LuaDebug">
+      <UniqueIdentifier>{cd9999e7-39b5-4870-b6a8-5b41efe44d50}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -122,6 +125,15 @@
     <ClCompile Include="Lua\lzio.c">
       <Filter>Lua</Filter>
     </ClCompile>
+    <ClCompile Include="luaDebuger.cpp">
+      <Filter>LuaDebug</Filter>
+    </ClCompile>
+    <ClCompile Include="command.cpp">
+      <Filter>LuaDebug</Filter>
+    </ClCompile>
+    <ClCompile Include="commandline.cpp">
+      <Filter>LuaDebug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Lua\lapi.h">
@@ -205,6 +217,12 @@
     <ClInclude Include="Lua\lzio.h">
       <Filter>Lua</Filter>
     </ClInclude>
+    <ClInclude Include="command.h">
+      <Filter>LuaDebug</Filter>
+    </ClInclude>
+    <ClInclude Include="commandline.h">
+      <Filter>LuaDebug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Lua\luaconf.h">
@@ -214,6 +232,9 @@
       <Filter>LuaScripts</Filter>
     </None>
     <None Include="ppp.lua">
+      <Filter>LuaScripts</Filter>
+    </None>
+    <None Include="hook.lua">
       <Filter>LuaScripts</Filter>
     </None>
   </ItemGroup>

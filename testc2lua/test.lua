@@ -19,3 +19,5 @@ function RunPPP()
 	print(_ppp.x);
 	print(_qqq.x);
 end
+
+RunPPP()
