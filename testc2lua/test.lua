@@ -11,6 +11,7 @@ function _add(a, b)
 end
 
 function RunPPP()
+	local s = 55
 	local _ppp = require("ppp")
 	_ppp.x = 5;
 	package.loaded["ppp"] = nil

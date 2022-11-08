@@ -215,6 +215,7 @@
     <ClInclude Include="Lua\lzio.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="coroutine_test.lua" />
     <None Include="hook.lua" />
     <None Include="Lua\luaconf.h" />
     <None Include="ppp.lua" />

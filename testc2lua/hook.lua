@@ -9,7 +9,7 @@ function printlocal(valname)
 	local i = 1
 	repeat
 		local name, value = debug.getlocal(4, i) -- 第1层是当前函数，第2层是c++中的CHook， 第3层是hookfunc，第4层才是我们要跟踪的函数栈
-		if name == nil then
+		if not name then
 			print("变量不存在");
 			return
 		end

@@ -237,5 +237,8 @@
     <None Include="hook.lua">
       <Filter>LuaScripts</Filter>
     </None>
+    <None Include="coroutine_test.lua">
+      <Filter>LuaScripts</Filter>
+    </None>
   </ItemGroup>
 </Project>
